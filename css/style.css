@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #000;
+  overflow-x: hidden;
 }
 
 header {
@@ -13,6 +14,8 @@ header {
 }
 
 main {
+  position: absolute;
+  top: 200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -27,6 +30,7 @@ section {
   margin: 20px;
   transition: background-color 0.2s;
   border-radius: 10px;
+  z-index: 2;
 }
 
 section:hover {
@@ -96,13 +100,30 @@ section:hover {
   font-weight: 900;
 }
 
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+
+.wrapper:after {
+  content: "";
+  height: 50px;
+  display: block;
+}
+
 footer {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: #454ADE;
   color: white;
   text-align: center;
   padding: 20px;
   width: 100%;
-  bottom: 0;
-  left: 0;
 }
+
