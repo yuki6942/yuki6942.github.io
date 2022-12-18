@@ -54,7 +54,8 @@ section:hover {
   transform: scale(1.1);
 }
 .social-links {
-  display: flex;
+  display: table-cell;
+  vertical-align: middle;
   justify-content: space-around;
   align-items: center;
   padding: 20px;
@@ -93,6 +94,11 @@ section:hover {
   background-color: #24292E;
 }
 
+.mastodon {
+  background-color: #5D52E9;
+}
+
+.fa-mastodon,
 .fa-discord,
 .fa-twitter,
 .fa-github {
