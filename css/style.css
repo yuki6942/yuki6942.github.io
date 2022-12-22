@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+  --bg-col: #121212;
+  --black--col: #000;
+  --grey-col: #1B1B1B;
+  --dark-purp: #2A1E36;
+  --purp-2: #3A2152;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-col);
+  background-image: radial-gradient(
+    var(--black--col),
+    var(--grey-col),
+    var(--dark-purp),
+    var(--purp-2)
+  );
+  min-height: 100vh;
+  background-size: 500% 500%;
+  animation: move 10s alternate infinite;
+}
+
+.avatar img {
+  position: absolute;
+  display: flex;
+  width: 150px;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0 0 20px violet;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ul li {
+  list-style: none;
+  margin: 0 15px;
+}
+
+ul li a {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #333;
+  background-image: radial-gradient(
+    var(--black--col),
+    var(--grey-col),
+    var(--dark-purp),
+    var(--purp-2)
+  );
+  border-radius: 30px;
+  font-size: 30px;
+  color: #666;
+  transition: .5s;
+  animation: move 10s alternate infinite;
+}
+
+ul li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: violet;
+  transform-style: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+ul li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px violet;
+}
+
+ul li a:hover {
+  color: violet;
+  box-shadow: 0 0 20px violet;
+  text-shadow: 0 0 5px violet;
+}
+
+
+@keyframes move {
+  from {
+    background-position: 0%;
+  }
+  
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  ul li {
+    margin: 0 5px;
+  }
+
+  .avatar img {
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
