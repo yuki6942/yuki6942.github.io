@@ -1,118 +1,138 @@
-:root {
-  --bg-col: #121212;
-  --black--col: #000;
-  --grey-col: #1B1B1B;
-  --dark-purp: #2A1E36;
-  --purp-2: #3A2152;
-}
-
 body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--bg-col);
-  background-image: radial-gradient(
-    var(--black--col),
-    var(--grey-col),
-    var(--dark-purp),
-    var(--purp-2)
-  );
-  min-height: 100vh;
-  background-size: 500% 500%;
-  animation: move 10s alternate infinite;
+    background-color: black;
+    color: lightgray;
+    font-family: monospace;
+    font-size: 14px;
+    overflow: hidden;
 }
-
-.avatar img {
-  position: absolute;
-  display: flex;
-  width: 150px;
-  top: 38%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  box-shadow: 0 0 20px violet;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-ul li {
-  list-style: none;
-  margin: 0 15px;
-}
-
-ul li a {
-  position: relative;
-  display: block;
-  width: 60px;
-  height: 60px;
-  text-align: center;
-  line-height: 60px;
-  background-color: #333;
-  background-image: radial-gradient(
-    var(--black--col),
-    var(--grey-col),
-    var(--dark-purp),
-    var(--purp-2)
-  );
-  border-radius: 30px;
-  font-size: 30px;
-  color: #666;
-  transition: .5s;
-  animation: move 10s alternate infinite;
-}
-
-ul li a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: violet;
-  transform-style: .5s;
-  transform: scale(.9);
-  z-index: -1;
-}
-
-ul li a:hover::before {
-  transform: scale(1.1);
-  box-shadow: 0 0 15px violet;
-}
-
-ul li a:hover {
-  color: violet;
-  box-shadow: 0 0 20px violet;
-  text-shadow: 0 0 5px violet;
-}
-
-
-@keyframes move {
-  from {
-    background-position: 0%;
+  
+#terminal-container {
+    background-color: black;
+    color: lightgray;
+    font-family: monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
   
-  to {
-    background-position: 100% 100%;
-  }
+#terminal-output {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex-grow: 1;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    hyphens: auto;
+}    
+  
+
+#terminal-output::-webkit-scrollbar {
+    display: none;
 }
 
-@media only screen and (max-device-width: 480px) {
-  ul li {
-    margin: 0 5px;
+#terminal-input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+  
+#terminal-user {
+    order: 1;
+    margin-right: 0.5rem;
+    color: #4CAF50;
+}
+  
+#terminal-dir {
+    order: 2;
+    color: rgb(76, 76, 252);
+}
+  
+#terminal-dollar {
+    color: gray;
   }
 
-  .avatar img {
-    top: 33%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+#terminal-input-field {
+    order: 3;
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    color: inherit;
+    outline: none;
+    font-family: monospace;
+    font-size: 1rem;
 }
 
+.terminal-line {
+    display: flex;
+    align-items: center;
+    word-wrap: break-word;
+    hyphens: auto;
+    padding: 5px 0;
+}
+  
+.terminal-line-output {
+    color: lightgray;
+    word-wrap: break-word;
+    hyphens: auto;
+    white-space: pre-wrap;
+}
+  
+.terminal-input-new #terminal-user-new {
+
+    color: #4CAF50;
+}
+  
+.terminal-input-new #terminal-dir-new {
+
+    color: rgb(76, 76, 252);
+}
+  
+.terminal-input-new #terminal-dollar-new {
+    margin-right: 0.5rem;
+    color: gray;
+}
+
+.terminal-line-user {
+
+    color: #4CAF50;
+  }
+  
+.terminal-line-directory {
+
+    color: rgb(76, 76, 252);
+}
+  
+.terminal-line-dollar {
+    margin-right: 0.5rem;
+    color: grey;
+}
+  
+
+@keyframes terminal-blink {
+    0% {
+      opacity: 1;
+}
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+  
+#terminal-container:not(:focus-within) #terminal-input::before {
+    content: "";
+    width: 6px;
+    height: 12px;
+    background-color: lightgray;
+    display: inline-block;
+    margin-right: 5px;
+    animation: terminal-blink 1s infinite;
+
+} 
+
+
+  
+  
